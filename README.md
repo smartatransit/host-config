@@ -13,6 +13,26 @@ https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ub
 1. Turn off password authentication
 https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
 **NOTE:** Make sure you test the sudo priveleges first! If you turn off password authentication in `sshd` and your `admin` user is unable to gain root access, _you are screwed_.
+1. Install docker
+https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1
+
+
+
+
+1. Securely expose the docker socket
+https://docs.docker.com/engine/security/https/
+
+
+
+
+
+
+
+
+
+TODOTODOTODOTODOTODO: turn all this into a script maybe? or is that too opaque?
+
+
 
 # TODO
 These things need to be done to get up and running. As they're each done, the doer should add some detail on how exactly they were handled and migrate them to the above list
