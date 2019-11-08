@@ -77,7 +77,15 @@ docker \
    --tlskey=key.pem \
    container ls
 ```
+1. Create a terraform user and give it SSH access but NOT sudo powers:
+```
+mkdir -p /home/terraform/.ssh
+touch /home/terraform/.ssh/authorized_keys
+useradd -d /home/terraform terraform
+chown -R terraform:terraform /home/terraform/
+chmod 700 /home/terraform/.ssh
+chmod 644 /home/terraform/.ssh/authorized_keys
 
-TODO
-====
-1. Create a new user with an authorized SSH key but with _extremely limited priveleges_ that can be used to realize terraform file provisioners as needed.
+mkdir -p /home/terraform/data
+```
+Now generate a key-pair locally. Provide the public end to the `authorized_keys` file you just created, and the private end (and username) to our Terraform Cloud workspace.
