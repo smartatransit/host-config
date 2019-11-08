@@ -8,15 +8,15 @@ Description:	Ubuntu 18.04.3 LTS
 Release:	18.04
 Codename:	bionic
 ```
-1. Create an `admin` user with sudo priveleges, and give it an authorized key
+2. Create an `admin` user with sudo priveleges, and give it an authorized key
 https://www.digitalocean.com/community/tutorials/how-to-create-a-sudo-user-on-ubuntu-quickstart
-1. Turn off password authentication
+3. Turn off password authentication
 https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server
 **NOTE:** Make sure you test the sudo priveleges first! If you turn off password authentication in `sshd` and your `admin` user is unable to gain root access, _you are screwed_.
-1. Flush `iptables` (`sudo iptables -F`) and then installing and use `ufw`. Make sure you expose port 22 before enabling the firewall. This is so we can easily expose 2376 for the docker socket later, but it needs to be done now since otherwise we'll destroy the Docker chains when we flush `iptables`.
-1. Install docker
+4. Flush `iptables` (`sudo iptables -F`) and then installing and use `ufw`. Make sure you expose port 22 before enabling the firewall. This is so we can easily expose 2376 for the docker socket later, but it needs to be done now since otherwise we'll destroy the Docker chains when we flush `iptables`.
+5. Install docker
 https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1
-1. Securely expose the docker socket
+6. Securely expose the docker socket
 https://docs.docker.com/engine/security/https/
 Use this to generate the certificates you need: (you'll need a passphrase, which you'll need to enter at various points)
 ```
@@ -77,7 +77,7 @@ docker \
    --tlskey=key.pem \
    container ls
 ```
-1. Create a terraform user and give it SSH access but NOT sudo powers:
+7. Create a terraform user and give it SSH access but NOT sudo powers:
 ```
 mkdir -p /home/terraform/.ssh
 touch /home/terraform/.ssh/authorized_keys
