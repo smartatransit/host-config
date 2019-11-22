@@ -80,13 +80,12 @@ docker \
 7. Create a terraform user and give it SSH access but NOT sudo powers:
 ```
 mkdir -p /home/terraform/.ssh
+mkdir -p /home/terraform/data
 touch /home/terraform/.ssh/authorized_keys
 useradd -d /home/terraform terraform
 chown -R terraform:terraform /home/terraform/
 chmod 700 /home/terraform/.ssh
 chmod 644 /home/terraform/.ssh/authorized_keys
-
-mkdir -p /home/terraform/data
 ```
 Now generate a key-pair locally. Provide the public end to the `authorized_keys` file you just created, and the private end (and username) to our Terraform Cloud workspace.
 8. Stop and disable the default Apache server to free up port 80 for other services:
