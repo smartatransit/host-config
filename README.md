@@ -89,3 +89,8 @@ chmod 644 /home/terraform/.ssh/authorized_keys
 mkdir -p /home/terraform/data
 ```
 Now generate a key-pair locally. Provide the public end to the `authorized_keys` file you just created, and the private end (and username) to our Terraform Cloud workspace.
+8. Stop and disable the default Apache server to free up port 80 for other services:
+```
+sudo systemctl disable apache2
+sudo systemctl stop apache2
+```
