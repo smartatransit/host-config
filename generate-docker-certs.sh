@@ -5,6 +5,8 @@ set +xe
 #  OPENSSLPASS is the passphrase to be used for the produced
 #  HOSTNAME is the hostname of the Docker host being configured
 
+mkdir -p /etc/docker/ssl
+
 sudo openssl genrsa -passout "pass:$OPENSSLPASS" -aes256 -out /etc/docker/ssl/ca-key.pem 4096
 sudo openssl req -passin "pass:$OPENSSLPASS" -subj "/CN=$HOSTNAME" -new -x509 -days 365 -key /etc/docker/ssl/ca-key.pem -sha256 -out /etc/docker/ssl/ca.pem
 
