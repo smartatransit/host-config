@@ -1,5 +1,5 @@
 #!/bin/bash
-set +x
+set +xe
 
 # make sure you set the following variables:
 #  OPENSSLPASS is the passphrase to be used for the produced
